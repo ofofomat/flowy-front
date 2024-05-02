@@ -10,6 +10,7 @@
   padding: 40px;
   max-width: 400px; 
   text-align: center; 
+  border-color: #e2dbd1;
 }
 
 .image-container {
@@ -40,7 +41,6 @@
 .button-container button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   background-color: #b9c9b2;
   color: #ffffff;
   font-size: 16px;
@@ -48,7 +48,7 @@
   border-radius: 50px;
   /* margin: 5px; */
   margin-left: 10px;
-  margin-rigt: 10px;
+  margin-right: 10px;
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -69,6 +69,7 @@ form {
 
 .input-container {
   margin-bottom: 15px;
+  display: flex;
 }
 
 .input-container label {
@@ -77,7 +78,7 @@ form {
 
 .input-container input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #7c7c5fbb;
   border-radius: 20px; /* Ajusta o arredondamento dos cantos */
   font-size: 16px;
 }
@@ -107,6 +108,7 @@ button[type="submit"] {
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 50px;
 }
 
 button[type="submit"]:hover {

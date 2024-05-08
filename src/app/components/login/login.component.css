@@ -3,21 +3,16 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #fffefc;
+  
 }
 
 .form-container {
   padding: 40px;
   max-width: 400px; 
   text-align: center; 
-  border-color: #e2dbd1;
-}
-
-.image-container {
-  display: flex;
   justify-content: center;
   align-items: center;
- 
+  border-color: #e2dbd1;
 }
 
 .image-container img {
@@ -32,10 +27,6 @@
   border-radius: 50px;  
   padding-bottom: 5px;
   padding-top: 5px;
-  display: flex;
-  margin-left: 50px;
-  width: 300px;
-  justify-content: center;
 }
 
 .button-container button {
@@ -57,23 +48,22 @@
   background-color: #5e704a;
 }
 
-p {
-  margin-bottom: 20px;
-}
-
 form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Adicionei esta linha para centralizar os elementos do formulário */
+  align-items: left; /* Adicionei esta linha para centralizar os elementos do formulário */
 }
 
 .input-container {
   margin-bottom: 15px;
   display: flex;
+  flex-flow: column wrap
 }
 
 .input-container label {
+  text-align: left;
   margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .input-container input {
@@ -89,15 +79,9 @@ form {
   margin-bottom: 15px;
 }
 
-.checkbox-container input {
-  margin-right: 10px;
-}
-
 a {
-  text-decoration: none;
   color: #4caf50;
-  margin-bottom: 20px;
-  display: block;
+  float: left;
 }
 
 button[type="submit"] {

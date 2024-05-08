@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/style/styles.css",
+              "src/style/colors.css",
               "node_modules/tailwindcss/base.css",
               "node_modules/tailwindcss/components.css",
               "node_modules/tailwindcss/utilities.css"
@@ -87,7 +88,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/style/styles.css",
+              "src/style/colors.css"
             ],
             "scripts": []
           }

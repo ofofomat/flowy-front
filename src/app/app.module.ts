@@ -4,12 +4,10 @@ import { FormsModule } from '@angular/forms'; // Importe o FormsModule aqui
 import { AppRoutingModule } from './app.routes';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    SignUpComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

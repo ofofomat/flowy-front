@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/style/styles.css",
               "src/style/colors.css",
               "node_modules/tailwindcss/base.css",
@@ -88,6 +89,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/style/styles.css",
               "src/style/colors.css"
             ],

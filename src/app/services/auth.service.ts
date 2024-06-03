@@ -7,28 +7,25 @@ import { User } from '../models/user.model';
 export class AuthService {
 
   private users: User[] = [
-    { id: 1, username: 'usuario1', password: 'senha123', email: 'usuario1@example.com' },
-    { id: 2, username: 'usuario2', password: 'senha456', email: 'usuario2@example.com' }
+    { id: 1, userName: 'usuario1', password: 'senha123', email: 'usuario1@example.com' },
+    { id: 2, userName: 'usuario2', password: 'senha456', email: 'usuario2@example.com' }
   ];
 
   constructor() { }
 
-  login(username: string, password: string): boolean {
-    // Implementação do login
-    return true; // Placeholder return statement
+  login(userName: string, password: string): boolean {
+    console.log(userName, password);
+    const user = this.users.find(u => u.userName === userName && u.password === password);
+    if (!user) return false;    
+   
+    return true;
   }
 
-  logout(): void {
-    // Implementação do logout
-  }
+  register(userName: string, password: string): boolean {
+    const user: User = new User(this.users.length + 1, userName, password, `${userName}@example.com`);
 
-  register(user: User): void {
     this.users.push(user);
     localStorage.setItem('currentUser', JSON.stringify(user));
-  }
-
-  getCurrentUser(): User | null {
-    const userJson = localStorage.getItem('currentUser');
-    return userJson ? JSON.parse(userJson) : null;
+    return true;
   }
 }

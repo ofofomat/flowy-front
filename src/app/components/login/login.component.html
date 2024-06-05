@@ -31,7 +31,7 @@
       <div class="input-container mb-4 relative">
         <label for="password" class="block mb-1">Password</label>
         <input [type]="passwordFieldType" id="password" name="password" [(ngModel)]="password" placeholder="Enter your Password" class="w-80 px-3 py-2 border rounded max-w-xs pr-10">
-        <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-11 right-0 flex items-center px-3 text-gray-500">
+        <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-11 right-0 flex items-center pt-1 px-3 text-gray-500">
           <mat-icon>{{ passwordFieldType === 'password' ? 'visibility' : 'visibility_off' }}</mat-icon>
         </button>
       </div>
@@ -40,7 +40,7 @@
         <label for="remember" class="mr-auto">Remember me</label>
         <a class="text-blue-500" href="#">Forgot Password?</a>
       </div>
-      <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded">{{ isLogin ? 'Login' : 'Register' }}</button>
+      <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded" type="submit">{{ isLogin ? 'Login' : 'Register' }}</button>
     </form>
   </div>
 </div>

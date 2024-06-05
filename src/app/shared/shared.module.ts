@@ -4,8 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastService } from '../services/toast.service';
-import { MatIconModule } from '@angular/material/icon';
+import { SidenavbarComponent } from '../components/sidenavbar/sidenavbar.component';
 
+import { MatIconModule } from '@angular/material/icon';
 import { MatCommonModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -36,6 +37,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressBarModule,
     MatRadioModule,
     MatChipsModule,
+    MatListModule,
+    SidenavbarComponent
   ],
   exports: [
     CommonModule,
@@ -109,6 +113,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatProgressBarModule,
     MatRadioModule,
     MatChipsModule,
+    MatListModule,
+    SidenavbarComponent
   ],
   providers: [ToastService]
 })

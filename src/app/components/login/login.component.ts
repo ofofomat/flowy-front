@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -14,25 +15,24 @@ export class LoginComponent {
   passwordFieldType = 'password';
   hide = true;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   login(event: Event): void {
-    event.preventDefault(); // Previene o comportamento padrão do formulário
+    event.preventDefault();
     if (this.authService.login(this.username, this.password)) {
-      // Redirecionar para página após login
-      console.log('Login successful');
+      this.router.navigate(['/home']);
     } else {
-      // Exibir mensagem de erro
       console.error('Login failed: invalid username or password');
     }
   }
 
   register(): void {
     if (this.authService.register(this.username, this.password)) {
-      // Redirecionar para página após registro
       console.log('Registro bem-sucedido');
     } else {
-      // Exibir mensagem de erro
       console.error('Falha no registro: nome de usuário já existe');
     }
   }

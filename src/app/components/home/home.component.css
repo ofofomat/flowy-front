@@ -6,14 +6,41 @@
   top: 0;
   left: 0;
   background-color: #c0c7b8;
-  overflow-x: hidden;
-  transition: 0.5s;
+  overflow-x: hidden;  
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
 }
 
 .sidenavbar-container hr {
     margin: 5px 0;
     margin-top: 10px;
+    margin-bottom: 30px;
     height: 2px;
     background: #5D7049;
     border-top: 1px solid #5D7049;
+}
+
+.sidenavbar-container mat-expansion-panel {
+  background-color: inherit;
+  margin-bottom: 10px;
+}
+
+mat-expansion-panel-header {
+  font-family: 'Poppins', sans-serif;    
+}
+
+.image-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  justify-content: end  ;
+}
+
+.image-container img {
+  max-width: 100%; 
+  max-height: 100%;
+  border-radius: 20px;
 }

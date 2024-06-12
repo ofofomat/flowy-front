@@ -6,6 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 
-export class HomeComponent {
 
+export class HomeComponent {
+  panelSelected = 0;  
+  
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
+  onPanelChange(index: number) {
+    this.panelSelected = index;
+  }
+  
 }

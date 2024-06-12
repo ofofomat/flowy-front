@@ -9,36 +9,62 @@
         </div>
 
         <hr>
+        <mat-accordion>
+            <mat-expansion-panel [hideToggle]="panelSelected !== 1" (opened)="onPanelChange(1)" (closed)="onPanelChange(0)">
+                <mat-expansion-panel-header>                    
+                    <mat-panel-title>
+                        <mat-icon class="mr-2">signal_cellular_alt</mat-icon>
+                        Projects
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Projects</mat-panel-title>
-            </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <a mat-list-item routerLink="/projects" routerLinkActive="active">
+                        <span class="flowy-green font-medium">All Projects</span>
+                    </a>
+                    <a mat-list-item routerLink="/projects/active" routerLinkActive="active">Active Projects</a>
+                    <a mat-list-item routerLink="/projects/completed" routerLinkActive="active">Completed Projects</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
 
-            <mat-nav-list>
-                <a mat-list-item routerLink="/projects" routerLinkActive="active">All Projects</a>
-                <a mat-list-item routerLink="/projects/active" routerLinkActive="active">Active Projects</a>
-                <a mat-list-item routerLink="/projects/completed" routerLinkActive="active">Completed Projects</a>
-            </mat-nav-list>
-        </mat-expansion-panel>
+            <mat-expansion-panel [hideToggle]="panelSelected !== 2" (opened)="onPanelChange(2)" (closed)="onPanelChange(0)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="mr-2">calendar_today</mat-icon>
+                        Areas
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Areas</mat-panel-title>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
+            <mat-expansion-panel [hideToggle]="panelSelected !== 3" (opened)="onPanelChange(3)" (closed)="onPanelChange(0)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="mr-2">inbox</mat-icon>
+                        Archives
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Archives</mat-panel-title>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
+            <mat-expansion-panel [hideToggle]="panelSelected !== 4" (opened)="onPanelChange(4)" (closed)="onPanelChange(0)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon class="mr-2">settings</mat-icon>
+                        Settings
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </mat-accordion>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>Settings</mat-panel-title>
-            </mat-expansion-panel-header>
-        </mat-expansion-panel>
+        <div class="absolute bottom-0 left-6 right-0 p-10 pb-5">
+            <button class="flex font-medium text-lg flowy-green mb-2">
+                <mat-icon class="mr-2">help</mat-icon>
+                Help
+            </button>
+            <button class="flex font-medium text-lg text-red-600">
+                <mat-icon class="mr-2">logout</mat-icon>
+                Logout account
+            </button>
+        </div>
     </div>
 
     <div class="image-container">

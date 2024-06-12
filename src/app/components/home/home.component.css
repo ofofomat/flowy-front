@@ -25,10 +25,38 @@ a, h1, h2, h3, h4, h5, h6 {
 .sidenavbar-container mat-expansion-panel {
   background-color: inherit;
   margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
-mat-expansion-panel-header {
-  font-family: 'Poppins', sans-serif;    
+.sidenavbar-container mat-expansion-panel-header.mat-expanded {
+  background-color: #5D7049;
+  height: 48px;
+}
+
+.mat-expansion-panel-header.mat-expanded .mat-expansion-panel-header-title {
+  color: white;
+}
+
+.mat-expansion-panel-header-title {
+  font-family: 'Poppins', sans-serif;
+  color: #5D7049;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.sidenavbar-container span {
+  font-family: 'Poppins', sans-serif;
+  color: #5D7049;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.sidenavbar-container mat-nav-list a {
+  color: #5D7049;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: medium;
 }
 
 .image-container {

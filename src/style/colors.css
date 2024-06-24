@@ -5,3 +5,11 @@
 .flowy-green {
     color: #5D7049;
 }
+
+.bg-flowy-green {
+    background-color: #5D7049;
+}
+
+.border-flowy-green {
+    border: 1px solid #5D7049;
+}

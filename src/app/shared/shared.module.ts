@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { ToastService } from '../services/toast.service';
-import { SidenavbarComponent } from '../components/sidenavbar/sidenavbar.component';
+import { ToastService } from '../services/toast.service'
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatCommonModule } from '@angular/material/core';
@@ -38,6 +37,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
+import { CoreModule } from './core.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     BrowserModule,    
     MatIconModule,
@@ -77,7 +79,8 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatChipsModule,
     MatListModule,
-    SidenavbarComponent
+    MatFormFieldModule,
+    CoreModule
   ],
   exports: [
     CommonModule,
@@ -114,7 +117,8 @@ import { MatListModule } from '@angular/material/list';
     MatRadioModule,
     MatChipsModule,
     MatListModule,
-    SidenavbarComponent
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [ToastService]
 })

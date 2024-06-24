@@ -1,0 +1,49 @@
+/* tasks.component.css */
+.project-sidenavbar-container {
+  height: 100%;
+  width: 30%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 20%;
+  background-color: #c0c7b85d;
+  overflow-x: hidden;
+}
+
+.project-sidenavbar-container hr {
+  margin: 5px 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  height: 2px;
+  background: #5D7049;
+  border-top: 1px solid #5D7049;
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #5D7049;
+}
+
+.span-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: white;
+}
+
+input {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border: 1px solid #5D7049;
+  padding: 10px;
+  background-color: #c0c7b8 !important;
+}
+
+textarea {
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border: 1px solid #5D7049;
+  background-color: #c0c7b8 !important;
+  padding-bottom: 450px;
+  overflow:hidden
+}

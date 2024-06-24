@@ -19,11 +19,16 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-list-item routerLink="/projects" routerLinkActive="active">
-                        <span class="flowy-green font-medium">All Projects</span>
+                    <a mat-list-item (click)="actualSidebar = 'projects'">
+                        <span class="flex flowy-green font-medium">New project
+                            <button class="ml-auto">
+                                <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
+                            </button>
+                        </span>                        
                     </a>
-                    <a mat-list-item routerLink="/projects/active" routerLinkActive="active">Active Projects</a>
-                    <a mat-list-item routerLink="/projects/completed" routerLinkActive="active">Completed Projects</a>
+                    <a mat-list-item *ngFor="let project of projects" (click)="onProjectSelected(project)">
+                        <span class="flowy-green font-medium">{{project.name}}</span>
+                    </a>
                 </mat-nav-list>
             </mat-expansion-panel>
 
@@ -34,6 +39,19 @@
                         Areas
                     </mat-panel-title>
                 </mat-expansion-panel-header>
+
+                <mat-nav-list>
+                    <a mat-list-item (click)="actualSidebar = 'areas'">
+                        <span class="flex flowy-green font-medium">New Area
+                            <button class="ml-auto">
+                                <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
+                            </button>
+                        </span>                        
+                    </a>
+                    <a mat-list-item *ngFor="let area of areas" (click)="onAreaSelected(area)">
+                        <span class="flowy-green font-medium">{{area.name}}</span>
+                    </a>
+                </mat-nav-list>
             </mat-expansion-panel>
 
             <mat-expansion-panel [hideToggle]="panelSelected !== 3" (opened)="onPanelChange(3)" (closed)="onPanelChange(0)">
@@ -60,13 +78,25 @@
                 <mat-icon class="mr-2">help</mat-icon>
                 Help
             </button>
-            <button class="flex font-medium text-lg text-red-600">
+            <button class="flex font-medium text-lg text-red-600" (click)="logout()">
                 <mat-icon class="mr-2">logout</mat-icon>
                 Logout account
             </button>
         </div>
     </div>
 
+   <div *ngIf="actualSidebar === 'areas'">
+    <app-areas (areaCreated)="loadAreas()"></app-areas>
+    </div>
+
+    <div *ngIf="actualSidebar === 'projects'">
+        <app-projects (projectCreated)="loadProjects()"></app-projects>
+    </div>
+
+    <div *ngIf="actualSidebar === 'tasks'">
+        <app-tasks [project]="project" [area]="area" *ngIf="actualSidebar === 'tasks'"></app-tasks>
+    </div>
+    
     <div class="image-container">
         <img src="../../../assets/home_checklist.png" alt="home-checklist Image" >
     </div>

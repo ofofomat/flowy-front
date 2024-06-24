@@ -57,6 +57,20 @@ a, h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: medium;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.sidenavbar-container mat-nav-list a:hover {
+  background-color: #5D7049;
+}
+
+.sidenavbar-container mat-nav-list a:hover span {
+  color: white;
+}
+
+.mat-nav-list-selected {
+  background-color: #5D7049;
 }
 
 .image-container {

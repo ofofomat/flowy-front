@@ -1,0 +1,88 @@
+.sidenavbar-container {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #c0c7b8;
+  overflow-x: hidden;  
+}
+
+a, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidenavbar-container hr {
+    margin: 5px 0;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 2px;
+    background: #5D7049;
+    border-top: 1px solid #5D7049;
+}
+
+.sidenavbar-container mat-expansion-panel {
+  background-color: inherit;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.sidenavbar-container mat-expansion-panel-header.mat-expanded {
+  background-color: #5D7049;
+  height: 48px;
+}
+
+.mat-expansion-panel-header.mat-expanded .mat-expansion-panel-header-title {
+  color: white;
+}
+
+.mat-expansion-panel-header-title {
+  font-family: 'Poppins', sans-serif;
+  color: #5D7049;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.sidenavbar-container span {
+  font-family: 'Poppins', sans-serif;
+  color: #5D7049;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.sidenavbar-container mat-nav-list a {
+  color: #5D7049;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.sidenavbar-container mat-nav-list a:hover {
+  background-color: #5D7049;
+}
+
+.sidenavbar-container mat-nav-list a:hover span {
+  color: white;
+}
+
+.mat-nav-list-selected {
+  background-color: #5D7049;
+}
+
+.image-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  justify-content: end  ;
+}
+
+.image-container img {
+  max-width: 100%; 
+  max-height: 100%;
+  border-radius: 20px;
+}

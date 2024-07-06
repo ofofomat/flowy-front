@@ -21,9 +21,7 @@ export class TasksAreaService {
   }
 
   createTask(areaId: number, task: TaskArea): Observable<TaskArea> {
-    console.log(task);
-
-    return this.httpClient.post<TaskArea>(`${DEFAULT_URL}/${areaId}/tasks`, {task});
+    return this.httpClient.post<TaskArea>(`${DEFAULT_URL}/${areaId}/tasks`, task);
   }
 
   updateTask(areaId: number, task: any): Observable<TaskArea> {

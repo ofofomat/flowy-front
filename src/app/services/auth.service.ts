@@ -14,7 +14,6 @@ export class AuthService {
   constructor() { }
 
   login(userName: string, password: string): boolean {
-    console.log(userName, password);
     const user = this.users.find(u => u.userName === userName && u.password === password);
     if (!user) return false;    
    

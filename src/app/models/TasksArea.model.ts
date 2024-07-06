@@ -4,6 +4,7 @@ export interface TaskArea {
   description: string;
   recurrence: string;
   priority: Priority;
+  areasId?: number;
 }
 
 enum Priority {

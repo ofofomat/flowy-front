@@ -4,6 +4,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { AreasComponent } from './components/areas/areas.component';
+import { TaskInfosComponent } from './components/tasks/task-infos/task-infos.component';
 
 // SERVICES
 import { AreaService } from './services/areas.service';
@@ -12,7 +13,7 @@ import { TasksProjectService } from './components/tasks/services/tasksProject.se
 import { TasksAreaService } from './components/tasks/services/tasksArea.service';
 
 @NgModule({
-  declarations: [HomeComponent, TasksComponent, ProjectsComponent, AreasComponent],
+  declarations: [HomeComponent, TasksComponent, ProjectsComponent, AreasComponent, TaskInfosComponent],
   imports: [
     SharedModule
   ],

@@ -17,6 +17,6 @@ export const appConfig: ApplicationConfig = {
       LoginModule,
       HomeModule,
       SharedModule
-    ), provideAnimationsAsync()
+    ), provideAnimationsAsync(), provideAnimationsAsync()
   ]
 };

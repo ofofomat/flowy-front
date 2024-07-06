@@ -73,6 +73,10 @@ a, h1, h2, h3, h4, h5, h6 {
   background-color: #5D7049;
 }
 
+.mat-nav-list-selected span {
+  color: white;
+}
+
 .image-container {
   position: fixed;
   bottom: 0;

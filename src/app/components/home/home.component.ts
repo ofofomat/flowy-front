@@ -8,6 +8,8 @@ import { TasksProjectService } from './components/tasks/services/tasksProject.se
 import { TasksAreaService } from './components/tasks/services/tasksArea.service';
 import { Area } from '../../models/Area.model';
 import { Project } from '../../models/Project.model';
+import { TaskProject } from '../../models/TasksProject.model';
+import { TaskArea } from '../../models/TasksArea.model';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +23,11 @@ export class HomeComponent {
   actualSidebar = '';
   project: Project = {} as Project;
   area: Area = {} as Area;;
+  selectedProjectId: number = 0;
+  selectedAreaId: number = 0;
+
+  taskProject: TaskProject = {} as TaskProject;
+  taskArea: TaskArea = {} as TaskArea;
 
   // Listas
   areas: Area[] = [];
@@ -47,12 +54,14 @@ export class HomeComponent {
 
   onProjectSelected(project: Project) {
     this.project = project;
+    this.selectedProjectId = project.projectId as number;
     this.area = {} as Area;
     this.actualSidebar = 'tasks';
   }
 
   onAreaSelected(area: Area) {
     this.area = area;
+    this.selectedAreaId = area.areasId as number;
     this.project = {} as Project;
     this.actualSidebar = 'tasks';
   }
@@ -72,6 +81,26 @@ export class HomeComponent {
   async logout() {
     // await this.authService.logout()
     return this.router.navigate(['']);
+  }
+
+  onTaskProjectSelected(task: TaskProject) {    
+    this.taskProject = task;
+  }
+
+  onTaskAreaSelected(task: TaskArea) { 
+    this.taskArea = task;       
+  }
+
+  onProjectDeleted(projectId: any) {
+    this.projectService.deleteProject(projectId).subscribe(() => {
+      this.loadProjects();
+    });
+  }
+
+  onAreaDeleted(areaId: any) {
+    this.areaService.deleteArea(areaId).subscribe(() => {
+      this.loadAreas();
+    });
   }
 
 }

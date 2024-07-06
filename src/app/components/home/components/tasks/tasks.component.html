@@ -15,20 +15,28 @@
     </div>
 
     <mat-nav-list *ngIf="isProjectOrArea == 'project'">
-        <a mat-list-item *ngFor="let task of tasksProject">
-            <span class="flowy-green font-medium">{{task.title}}</span>
+        <a (click)="onTaskProjectSelected(task)" mat-list-item *ngFor="let task of tasksProject; let i = index">
+            <span class="flex flowy-green font-medium">{{i + 1}} {{task.title}}
+                <button class="ml-auto" (click)="onDeleteTaskProject(task)">
+                    <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
+                </button>
+            </span>
         </a>
     </mat-nav-list>
 
     <mat-nav-list *ngIf="isProjectOrArea == 'area'">
-        <a mat-list-item *ngFor="let task of tasksArea">
-            <span class="flowy-green font-medium">{{task.title}}</span>
+        <a (click)="onTaskAreaSelected(task)" mat-list-item *ngFor="let task of tasksArea; let i = index">
+            <span class="flex flowy-green font-medium">{{i + 1}} {{task.title}}
+                <button class="ml-auto" (click)="onDeleteTaskArea(task)">
+                    <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
+                </button>
+            </span>
         </a>
     </mat-nav-list>
 </div>
 
 <div *ngIf="creatingTask && isProjectOrArea === 'project'" class="task-sidenavbar-container p-10 pl-20 pr-20"
-    [formGroup]="taskProjectForm">
+    [formGroup]="tas'kProjectForm">
     <div class="row flex justify-center">
         <h1>New task</h1>
     </div>
@@ -52,27 +60,34 @@
     <hr>
 
     <div class="row flex justify-center mb-2">
-        <h2 >Local date:</h2>
-        <input class="ml-5" matInput formControlName="date">
-        <!-- <mat-form-field appearance="outline" class="custom-date-picker">
-            <input class="ml-5" matInput [matDatepicker]="picker" formControlName="date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field> -->
+        <h2 class="pt-3">Date:</h2>
+        <input class="ml-5" type="date" matInput formControlName="date">
     </div>
 
     <hr>
 
-    <div class="row flex justify-center mb-2">
-        <h2 class="pt-3">Priority:</h2>
-        <div class="radio-buttons-container">
-            <mat-radio-group formControlName="priority">
-                <mat-radio-button value="TRIVIAL">Trivial</mat-radio-button>
-                <mat-radio-button value="LOW">Low</mat-radio-button>
-                <mat-radio-button value="AVERAGE">Average</mat-radio-button>
-                <mat-radio-button value="HIGH">High</mat-radio-button>
-            </mat-radio-group>
-        </div> 
+    <div class="row flex mb-2">
+        <h2 class="pt-3 mr-auto">Priority:</h2>
+        <form class="ml-2 row flex">
+            <div class="row flex space-x-1" [formGroup]="taskProjectForm">
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="TRIVIAL" name="priority">
+                    Trivial
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="LOW" name="priority">
+                    Low
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="AVERAGE" name="priority">
+                    Average
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="HIGH" name="priority">
+                    High
+                </label>
+            </div>    
+        </form>
     </div>
 
     <hr>
@@ -114,35 +129,60 @@
         <textarea matInput formControlName="description"></textarea>
     </div>
 
-    <hr>
+    <hr>    
 
     <div>
-        <h2>Recurrence:</h2>
-        <input class="ml-5" matInput formControlName="recurrence">
-        <!-- <mat-form-field>
-            <input matInput [matDatepicker]="picker" formControlName="date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field> -->
-    </div>
-
-    <div *ngIf="isProjectOrArea === 'area'" class="row flex justify-center mb-2">
-        <h2 class="pt-3">Recurrence:</h2>
-        <input class="ml-5" matInput formControlName="recurrence">
+        <div class="row flex justify-center">
+            <h2>Recurrence:</h2>
+        </div>
+        <form class="row flex">
+            <div class="row flex space-x-1">
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="recurrenceType" value="Day" name="recurrenceType" checked>
+                    Day
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="recurrenceType" value="Week" name="recurrenceType">
+                    Week
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="recurrenceType" value="Month" name="recurrenceType">
+                    Month
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="recurrenceType" value="Year" name="recurrenceType">
+                    Year
+                </label>
+            </div>
+            
+            <input type="number" class="ml-auto w-1/5" placeholder="0" formControlName="recurrencTime">        
+        </form>
     </div>
 
     <hr>
 
-    <div class="row flex justify-center mb-2">
-        <h2 class="pt-3">Priority:</h2>
-        <div class="radio-buttons-container">
-            <mat-radio-group formControlName="priority">
-                <mat-radio-button value="TRIVIAL">Trivial</mat-radio-button>
-                <mat-radio-button value="LOW">Low</mat-radio-button>
-                <mat-radio-button value="AVERAGE">Average</mat-radio-button>
-                <mat-radio-button value="HIGH">High</mat-radio-button>
-            </mat-radio-group>
-        </div>        
+    <div class="row flex mb-2">
+        <h2 class="pt-3 mr-auto">Priority:</h2>
+        <form class="ml-2 row flex">
+            <div class="row flex space-x-1" [formGroup]="taskAreaForm">
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="TRIVIAL" name="priority">
+                    Trivial
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="LOW" name="priority">
+                    Low
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="AVERAGE" name="priority">
+                    Average
+                </label>
+                <label class="radio-label">
+                    <input class="mr-1" type="radio" formControlName="priority" value="HIGH" name="priority">
+                    High
+                </label>
+            </div>    
+        </form>
     </div>
 
     <hr>
@@ -152,7 +192,7 @@
             <span class="span-button m-2 mt-1">Create project</span>
             <span class="mt-1 mr-1 material-icons text-white">add</span>
         </button>
-    
+
         <button class="flex bg-red rounded-full p-2" (click)="creatingTask = false">
             <span class="span-button m-2 mt-1">Cancel</span>
             <span class="mt-1 mr-1 material-icons text-white">close</span>

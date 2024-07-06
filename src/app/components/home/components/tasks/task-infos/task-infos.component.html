@@ -1,0 +1,37 @@
+<div class="task-info-container p-10">
+    <div class="row flex items-stretch">
+      <img class="object-scale-down h-8 w-8" src="../../../assets/calendar_clock.png" alt="calendar_clock Image">
+
+      <div class="ml-2">
+        <h2 *ngIf="taskProject.tasksProjectId">{{date}}</h2>
+        <h2 *ngIf="taskArea.tasksId">{{recurrence}}</h2>
+      </div>
+
+      <div *ngIf="priority === 'TRIVIAL'" class="bg-stone-700 rounded-full ml-auto shadow-inner p-1 h-8 w-8">
+        <mat-icon class="text-white">priority_high</mat-icon>
+      </div>
+      <div *ngIf="priority === 'LOW'" class="bg-blue-700 rounded-full ml-auto shadow-inner p-1 h-8 w-8">
+        <mat-icon class="text-white">priority_high</mat-icon>
+      </div>
+      <div *ngIf="priority === 'AVERAGE'" class="bg-amber-400 rounded-full ml-auto shadow-inner p-1 h-8 w-8">
+        <mat-icon class="text-white">priority_high</mat-icon>
+      </div>
+      <div *ngIf="priority === 'HIGH'" class="bg-red-600 rounded-full ml-auto shadow-inner p-1 h-8 w-8">
+        <mat-icon class="text-white">priority_high</mat-icon>
+      </div>
+    </div>
+
+    <div class="row flex justify-center">
+      <h1>{{title}}</h1>
+    </div>
+
+    <hr>
+
+    <div class="row flex mb-2 h-auto min-h-96">
+      <p>{{description}}</p>
+    </div>
+
+    <h2>Attachments</h2>
+    <hr>
+
+</div> 

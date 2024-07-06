@@ -6,7 +6,6 @@
     z-index: 1;
     top: 0;
     left: 20%;
-    background-color: #c0c7b85d;
     overflow-x: hidden;
 }
 
@@ -93,27 +92,9 @@ textarea {
     width: 100%;
 }
 
-.radio-buttons-container {
+.radio-label {
+    font-family: 'Poppins', sans-serif;
+    color: #5D7049;
     display: flex;
-    justify-content: space-between; /* Espaçamento entre os botões */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
+    align-items: center;
 }
-
-.mat-radio-button.mat-accent .mat-radio-inner-circle {
-    border-color: #5D7049;
-}
-
-.mat-radio-button.mat-accent .mat-radio-outer-circle {
-    border-color: #5D7049;
-}
-
-.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-    background-color: rgba(93, 112, 73, 0.1);
-}
-
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-inner-circle {
-    background-color: #5D7049;
-}
-
-

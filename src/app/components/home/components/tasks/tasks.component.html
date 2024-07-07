@@ -9,7 +9,7 @@
     <div class="row flex mb-10">
         <span class="task-count-text pt-1">Tasks </span>
         <span class="task-count-number pt-1">({{taskCount}})</span>
-        <button class="ml-auto" (click)="creatingTask = true">
+        <button class="ml-auto" (click)="onCreatingTask()">
             <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
         </button>
     </div>
@@ -94,7 +94,7 @@
 
     <div class="row flex justify-end p-2">
         <button class="flex bg-flowy-green rounded-full p-2" (click)="onCreateTask()">
-            <span class="span-button m-2 mt-1">Create project</span>
+            <span class="span-button m-2 mt-1">Create task</span>
             <span class="mt-1 mr-1 material-icons text-white">add</span>
         </button>
 
@@ -189,7 +189,7 @@
 
     <div class="row flex justify-end p-2">
         <button class="flex bg-flowy-green rounded-full p-2" (click)="onCreateTask()">
-            <span class="span-button m-2 mt-1">Create project</span>
+            <span class="span-button m-2 mt-1">Create task</span>
             <span class="mt-1 mr-1 material-icons text-white">add</span>
         </button>
 

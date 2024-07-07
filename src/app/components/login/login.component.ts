@@ -1,40 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { FlowyUser } from '../../models/FlowyUser.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   username = '';
   password = '';
   isLogin = true;
   passwordFieldType = 'password';
   hide = true;
+  public userForm = {} as FormGroup;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
+
+  ngOnInit(): void {
+    this.userForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      userPassword: ['', Validators.required],
+      userEmail: ['', Validators.required]
+    });
+  }
 
   login(event: Event): void {
     event.preventDefault();
-    if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/home']);
-    } else {
-      console.error('Login failed: invalid username or password');
-    }
+    const { userName, userPassword } = this.userForm.value; 
+    this.authService.login(userName, userPassword).subscribe(
+      (res) => {
+        console.log('Login bem-sucedido', res);
+        this.router.navigate(['/home']);
+      },
+      (err) => {
+        console.error('Login falhou: ', err);
+      }
+    );
   }
 
-  register(): void {
-    if (this.authService.register(this.username, this.password)) {
-      console.log('Registro bem-sucedido');
-    } else {
-      console.error('Falha no registro: nome de usuário já existe');
-    }
+  register(event: Event): void {
+    event.preventDefault();
+    const user: FlowyUser = this.userForm.value;
+    this.authService.register(user).subscribe(
+      (res) => {
+        console.log('Registro bem-sucedido', res);
+        this.router.navigate(['/home']);
+      },
+      (err) => {
+        console.error('Register failed: ', err);
+      }
+    );
   }
 
   toggleForm(isLogin: boolean): void {

@@ -104,6 +104,8 @@ export class TasksComponent implements OnInit, OnChanges {
           this.tasksProject.push(task);
           this.taskCount = this.tasksProject.length;
           this.creatingTask = false;
+
+          this.taskProjectForm.reset();
         },
         (error: any) => {
           console.error(error);
@@ -123,6 +125,8 @@ export class TasksComponent implements OnInit, OnChanges {
           this.tasksArea.push(task);
           this.taskCount = this.tasksArea.length;
           this.creatingTask = false;
+
+          this.taskAreaForm.reset();
         },
         (error: any) => {
           console.error(error);
@@ -160,5 +164,11 @@ export class TasksComponent implements OnInit, OnChanges {
         console.error(error);
       }
     );
+  }
+
+  onCreatingTask() {
+    this.creatingTask = true;
+    this.taskProjectSelected.emit({} as TaskProject);
+    this.taskAreaSelected.emit({} as TaskArea);
   }
 }

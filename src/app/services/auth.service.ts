@@ -1,30 +1,24 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user.model';
+import { FlowyUser } from '../models/FlowyUser.model';
+import { environment } from '../../environments/enviroment';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const DEFAULT_URL = `${environment.api}/user`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private users: User[] = [
-    { id: 1, userName: 'usuario1', password: 'senha123', email: 'usuario1@example.com' },
-    { id: 2, userName: 'usuario2', password: 'senha456', email: 'usuario2@example.com' }
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  login(userName: string, password: string): boolean {
-    const user = this.users.find(u => u.userName === userName && u.password === password);
-    if (!user) return false;    
-   
-    return true;
+  login(userName: string, userPassword: string): Observable<FlowyUser> {
+    const body = { userName, userPassword };
+    return this.http.post<FlowyUser>(`${DEFAULT_URL}/findUser`, body);
   }
 
-  register(userName: string, password: string): boolean {
-    const user: User = new User(this.users.length + 1, userName, password, `${userName}@example.com`);
-
-    this.users.push(user);
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    return true;
+  register(user: FlowyUser): Observable<FlowyUser> {
+    return this.http.post<FlowyUser>(DEFAULT_URL, user);
   }
 }

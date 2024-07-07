@@ -20,7 +20,7 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-list-item (click)="actualSidebar = 'projects'; selectedProjectId = 0">
+                    <a mat-list-item (click)="onChangeSidebar('projects'); selectedProjectId = 0">
                         <span class="flex flowy-green font-medium">New project
                             <button class="ml-auto">
                                 <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
@@ -49,7 +49,7 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-list-item (click)="actualSidebar = 'areas'; selectedAreaId = 0">
+                    <a mat-list-item (click)="onChangeSidebar('areas'); selectedAreaId = 0">
                         <span class="flex flowy-green font-medium">New Area
                             <button class="ml-auto">
                                 <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
@@ -67,7 +67,7 @@
                 </mat-nav-list>
             </mat-expansion-panel>
 
-            <mat-expansion-panel [hideToggle]="panelSelected !== 3" (opened)="onPanelChange(3)"
+            <mat-expansion-panel disabled="true" [hideToggle]="panelSelected !== 3" (opened)="onPanelChange(3)"
                 (closed)="onPanelChange(0)">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -77,8 +77,8 @@
                 </mat-expansion-panel-header>
             </mat-expansion-panel>
 
-            <mat-expansion-panel [hideToggle]="panelSelected !== 4" (opened)="onPanelChange(4)"
-                (closed)="onPanelChange(0)">
+            <mat-expansion-panel disabled="true" [hideToggle]="panelSelected !== 4" (opened)="onPanelChange(4)"
+                (closed)="onPanelChange(0)" class="text-gray-500">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         <mat-icon class="mr-2">settings</mat-icon>

@@ -66,6 +66,17 @@ export class HomeComponent {
     this.actualSidebar = 'tasks';
   }
 
+  onChangeSidebar(sidebar: string) {
+    this.actualSidebar = sidebar;
+    this.project = {} as Project;
+    this.area = {} as Area;
+    this.selectedProjectId = 0;
+    this.selectedAreaId = 0;
+    this.taskProject = {} as TaskProject;
+    this.taskArea = {} as TaskArea;
+  }
+
+
   loadAreas() {
     this.areaService.getAllAreas().subscribe((areas: Area[]) => {
       this.areas = areas;

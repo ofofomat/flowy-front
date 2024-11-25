@@ -9,25 +9,25 @@
     <div class="row flex mb-10">
         <span class="task-count-text pt-1">Tasks </span>
         <span class="task-count-number pt-1">({{taskCount}})</span>
-        <button class="ml-auto" (click)="onCreatingTask()">
+        <button class="ml-auto" (click)="onCreatingTask()" (keyup.enter)="onCreatingTask()" (keydown.space)="onCreatingTask()">
             <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
         </button>
     </div>
 
-    <mat-nav-list *ngIf="isProjectOrArea == 'project'">
-        <a (click)="onTaskProjectSelected(task)" mat-list-item *ngFor="let task of tasksProject; let i = index">
+    <mat-nav-list *ngIf="isProjectOrArea === 'project'">
+        <a (click)="onTaskProjectSelected(task)" (keyup.enter)="onTaskProjectSelected(task)" (keydown.space)="onTaskProjectSelected(task)" mat-list-item *ngFor="let task of tasksProject; let i = index" tabindex="0">
             <span class="flex flowy-green font-medium">{{i + 1}} {{task.title}}
-                <button class="ml-auto" (click)="onDeleteTaskProject(task)">
+                <button class="ml-auto" (click)="onDeleteTaskProject(task)" (keyup.enter)="onDeleteTaskProject(task)" (keydown.space)="onDeleteTaskProject(task)">
                     <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
                 </button>
             </span>
         </a>
     </mat-nav-list>
-
-    <mat-nav-list *ngIf="isProjectOrArea == 'area'">
-        <a (click)="onTaskAreaSelected(task)" mat-list-item *ngFor="let task of tasksArea; let i = index">
+    
+    <mat-nav-list *ngIf="isProjectOrArea === 'area'">
+        <a (click)="onTaskAreaSelected(task)" (keyup.enter)="onTaskAreaSelected(task)" (keydown.space)="onTaskAreaSelected(task)" mat-list-item *ngFor="let task of tasksArea; let i = index" tabindex="0">
             <span class="flex flowy-green font-medium">{{i + 1}} {{task.title}}
-                <button class="ml-auto" (click)="onDeleteTaskArea(task)">
+                <button class="ml-auto" (click)="onDeleteTaskArea(task)" (keyup.enter)="onDeleteTaskArea(task)" (keydown.space)="onDeleteTaskArea(task)">
                     <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
                 </button>
             </span>

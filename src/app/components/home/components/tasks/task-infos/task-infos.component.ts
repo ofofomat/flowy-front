@@ -1,9 +1,4 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
-import { TaskProject } from '../../../../../models/TasksProject.model';
-import { TaskArea } from '../../../../../models/TasksArea.model';
-import { Project } from '../../../../../models/Project.model';
-import { Area } from '../../../../../models/Area.model';
-import { Month } from '@syncfusion/ej2/schedule';
 
 @Component({
   selector: 'app-task-infos',
@@ -12,8 +7,8 @@ import { Month } from '@syncfusion/ej2/schedule';
 })
 export class TaskInfosComponent implements OnInit, OnChanges{
 
-  @Input() taskProject: any;
-  @Input() taskArea: any;
+  @Input() taskProject!: string;
+  @Input() taskArea!: string;
 
   date: string = '';
   title: string = '';

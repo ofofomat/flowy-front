@@ -10,7 +10,7 @@ const DEFAULT_URL = `${environment.api}/areas`;
 @Injectable()
 export class TasksAreaService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) { }
   
   getTasksByAreaId(areaId: number): Observable<TaskArea[]> {
     return this.httpClient.get<TaskArea[]>(`${DEFAULT_URL}/${areaId}/tasks`);
@@ -24,8 +24,8 @@ export class TasksAreaService {
     return this.httpClient.post<TaskArea>(`${DEFAULT_URL}/${areaId}/tasks`, task);
   }
 
-  updateTask(areaId: number, task: any): Observable<TaskArea> {
-    return this.httpClient.put<TaskArea>(`${DEFAULT_URL}/${areaId}/tasks/${task.id}`, {task});
+  updateTask(areaId: number, task: TaskArea): Observable<TaskArea> {
+    return this.httpClient.put<TaskArea>(`${DEFAULT_URL}/${areaId}/tasks/${task.tasksId}`, {task});
   }
 
   deleteTask(areaId:number, taskId: number): Observable<TaskArea> {

@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-//SERVICES
+// SERVICES
 import { AreaService } from './services/areas.service';
 import { ProjectService } from './services/projects.service';
 import { TasksProjectService } from './components/tasks/services/tasksProject.service';
@@ -16,13 +16,11 @@ import { TaskArea } from '../../models/TasksArea.model';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-
-
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   panelSelected = 0;  
   actualSidebar = '';
   project: Project = {} as Project;
-  area: Area = {} as Area;;
+  area: Area = {} as Area;
   selectedProjectId: number = 0;
   selectedAreaId: number = 0;
 
@@ -34,14 +32,12 @@ export class HomeComponent {
   projects: Project[] = [];
   
   constructor(
-    private router: Router,
-    private tasksProjectService: TasksProjectService,
-    private tasksAreaService: TasksAreaService,
-    private areaService: AreaService,
-    private projectService: ProjectService
-  ) {
-    
-  }
+    private readonly router: Router,
+    private readonly tasksProjectService: TasksProjectService,
+    private readonly tasksAreaService: TasksAreaService,
+    private readonly areaService: AreaService,
+    private readonly projectService: ProjectService
+  ) { }
 
   ngOnInit(): void {
     this.loadAreas();
@@ -76,7 +72,6 @@ export class HomeComponent {
     this.taskArea = {} as TaskArea;
   }
 
-
   loadAreas() {
     this.areaService.getAllAreas().subscribe((areas: Area[]) => {
       this.areas = areas;
@@ -102,16 +97,15 @@ export class HomeComponent {
     this.taskArea = task;       
   }
 
-  onProjectDeleted(projectId: any) {
+  onProjectDeleted(projectId: number) {
     this.projectService.deleteProject(projectId).subscribe(() => {
       this.loadProjects();
     });
   }
 
-  onAreaDeleted(areaId: any) {
+  onAreaDeleted(areaId: number) {
     this.areaService.deleteArea(areaId).subscribe(() => {
       this.loadAreas();
     });
   }
-
 }

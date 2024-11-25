@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Project } from '../../../models/Project.model';
 import { environment } from '../../../../environments/enviroment';
@@ -11,7 +11,7 @@ const DEFAULT_URL = `${environment.api}/projects`;
 })
 export class ProjectService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   getAllProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${DEFAULT_URL}`);

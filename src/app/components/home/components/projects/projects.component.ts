@@ -33,7 +33,7 @@ export class ProjectsComponent implements OnInit {
         console.log(area);
         this.projectCreated.emit(area);
       },
-      (error: any) => {
+      (error: ErrorEvent) => {
         console.error(error);
       }
     );

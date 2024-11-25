@@ -6,7 +6,6 @@ import { Project } from '../../../../models/Project.model';
 import { TaskArea } from '../../../../models/TasksArea.model';
 import { TaskProject } from '../../../../models/TasksProject.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DateTime } from '@syncfusion/ej2/charts';
 
 @Component({
   selector: 'app-tasks',
@@ -32,9 +31,9 @@ export class TasksComponent implements OnInit, OnChanges {
   public projectForm!: FormGroup;
 
   constructor(
-    private tasksProjectService: TasksProjectService,
-    private tasksAreaService: TasksAreaService,
-    private formBuilder: FormBuilder
+    private readonly tasksProjectService: TasksProjectService,
+    private readonly tasksAreaService: TasksAreaService,
+    private readonly formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -63,7 +62,7 @@ export class TasksComponent implements OnInit, OnChanges {
   }
 
   loadTasks() {
-    if (this.project && this.project.projectId) {
+    if (this.project?.projectId) {
       this.tasksProjectService.getTasksByProjectId(this.project.projectId).subscribe(
         (tasks: TaskProject[]) => {
           this.tasksProject = tasks;
@@ -71,11 +70,11 @@ export class TasksComponent implements OnInit, OnChanges {
           this.title = this.project.name;
           this.isProjectOrArea = 'project';
         },
-        (error: any) => {
+        (error: ErrorEvent) => {
           console.error(error);
         }
       );
-    } else if (this.area && this.area.areasId) {
+    } else if (this.area?.areasId) {
       this.tasksAreaService.getTasksByAreaId(this.area.areasId).subscribe(
         (tasks: TaskArea[]) => {
           this.tasksArea = tasks;
@@ -83,7 +82,7 @@ export class TasksComponent implements OnInit, OnChanges {
           this.title = this.area.name;
           this.isProjectOrArea = 'area';
         },
-        (error: any) => {
+        (error: ErrorEvent) => {
           console.error(error);
         }
       );
@@ -91,7 +90,7 @@ export class TasksComponent implements OnInit, OnChanges {
   }
 
   onCreateTask() {
-    if (this.project && this.project.projectId) {
+    if (this.project?.projectId) {
       const TaskProject = {
         title: this.taskProjectForm.value.title,
         description: this.taskProjectForm.value.description,
@@ -100,18 +99,18 @@ export class TasksComponent implements OnInit, OnChanges {
       };
       this.tasksProjectService.createTask(this.project.projectId, TaskProject).subscribe(
         (task: TaskProject) => {
-          console.log('Task created'),
+          console.log('Task created');
           this.tasksProject.push(task);
           this.taskCount = this.tasksProject.length;
           this.creatingTask = false;
 
           this.taskProjectForm.reset();
         },
-        (error: any) => {
+        (error: ErrorEvent) => {
           console.error(error);
         }
       );
-    } else if (this.area && this.area.areasId) {
+    } else if (this.area?.areasId) {
       const recurrence = `${this.taskAreaForm.value.recurrencTime}-${this.taskAreaForm.value.recurrenceType}`;
       const TaskArea = {
         title: this.taskAreaForm.value.title,
@@ -128,7 +127,7 @@ export class TasksComponent implements OnInit, OnChanges {
 
           this.taskAreaForm.reset();
         },
-        (error: any) => {
+        (error: ErrorEvent) => {
           console.error(error);
         }
       );
@@ -149,7 +148,7 @@ export class TasksComponent implements OnInit, OnChanges {
       () => {
         this.loadTasks();
       },
-      (error: any) => {
+      (error: ErrorEvent) => {
         console.error(error);
       }
     );
@@ -160,7 +159,7 @@ export class TasksComponent implements OnInit, OnChanges {
       () => {
         this.loadTasks();
       },
-      (error: any) => {
+      (error: ErrorEvent) => {
         console.error(error);
       }
     );

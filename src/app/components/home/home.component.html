@@ -20,18 +20,18 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-list-item (click)="onChangeSidebar('projects'); selectedProjectId = 0">
+                    <a mat-list-item (click)="onChangeSidebar('projects'); selectedProjectId = 0" (keyup.enter)="onChangeSidebar('projects'); selectedProjectId = 0" (keydown.space)="onChangeSidebar('projects'); selectedProjectId = 0" tabindex="0">
                         <span class="flex flowy-green font-medium">New project
-                            <button class="ml-auto">
+                            <button class="ml-auto" tabindex="0">
                                 <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
                             </button>
                         </span>
                     </a>
                     <a class="row flex" mat-list-item *ngFor="let project of projects"
-                        (click)="onProjectSelected(project)"
-                        [ngClass]="{'mat-nav-list-selected': selectedProjectId === project.projectId}">
+                        (click)="onProjectSelected(project)" (keyup.enter)="onProjectSelected(project)" (keydown.space)="onProjectSelected(project)"
+                        [ngClass]="{'mat-nav-list-selected': selectedProjectId === project.projectId}" tabindex="0">
                         <span class="flex flowy-green font-medium">{{project.name}}
-                            <button class="ml-auto" (click)="onProjectDeleted(project.projectId)">
+                            <button class="ml-auto" (click)="project.projectId !== undefined && onProjectDeleted(project.projectId)" tabindex="0">
                                 <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
                             </button>
                         </span>
@@ -49,17 +49,17 @@
                 </mat-expansion-panel-header>
 
                 <mat-nav-list>
-                    <a mat-list-item (click)="onChangeSidebar('areas'); selectedAreaId = 0">
+                    <a tabindex="0" mat-list-item (click)="onChangeSidebar('areas'); selectedAreaId = 0" (keyup.enter)="onChangeSidebar('areas'); selectedAreaId = 0" (keydown.space)="onChangeSidebar('areas'); selectedAreaId = 0">
                         <span class="flex flowy-green font-medium">New Area
-                            <button class="ml-auto">
+                            <button class="ml-auto" tabindex="0">
                                 <mat-icon class="text-white bg-flowy-green rounded-full pb-6">add</mat-icon>
                             </button>
                         </span>
                     </a>
-                    <a mat-list-item *ngFor="let area of areas" (click)="onAreaSelected(area)"
+                    <a tabindex="0" mat-list-item *ngFor="let area of areas" (click)="onAreaSelected(area)" (keyup.enter)="onAreaSelected(area)" (keydown.space)="onAreaSelected(area)"
                         [ngClass]="{'mat-nav-list-selected': selectedAreaId === area.areasId}">
                         <span class="flex flowy-green font-medium">{{area.name}}
-                            <button class="ml-auto" (click)="onAreaDeleted(area.areasId)">
+                            <button class="ml-auto" (click)="area.areasId !== undefined && onAreaDeleted(area.areasId)" tabindex="0">
                                 <mat-icon class="text-white text-base bg-flowy-green rounded-full">delete</mat-icon>
                             </button>
                         </span>

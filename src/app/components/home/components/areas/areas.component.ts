@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AreaService } from '../../services/areas.service';
 import { Area } from '../../../../models/Area.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -34,7 +34,7 @@ export class AreasComponent implements OnInit {
         console.log(area);
         this.areaCreated.emit(area);
       },
-      (error: any) => {
+      (error: ErrorEvent) => {
         console.error(error);
       }
     );

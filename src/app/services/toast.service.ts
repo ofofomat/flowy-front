@@ -8,7 +8,7 @@ export class ToastService {
   constructor() { }
 
   // To create the toast component
-  createToast: Function = (element: HTMLElement, model: ToastModel): Toast => {
+  createToast = (element: HTMLElement, model: ToastModel): Toast => {
     if (!element.classList.contains('e-toast')) {
       this.toastInstance = new Toast(model, element);
     }
@@ -16,20 +16,20 @@ export class ToastService {
   };
 
   // To show the toast component
-  showToast: Function = (elemnet: HTMLElement, model: ToastModel) => {
+  showToast = (elemnet: HTMLElement, model: ToastModel) => {
     this.toastInstance = this.createToast(elemnet, model);
     this.toastInstance.show();
   }
 
   // To hide the toast component
-  hideToast: Function = () => {
+  hideToast = () => {
     if (this.toastInstance) {
       this.toastInstance.hide();
     }
   }
 
   // To hide the all toast component
-  hideToastAll: Function = () => {
+  hideToastAll = () => {
     if (this.toastInstance) {
       this.toastInstance.hide('All');
     }
